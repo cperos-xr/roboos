@@ -1,0 +1,7 @@
+# RoboOS. Pillow, numpy, pyserial and requests usually come from apt (install.sh); pip installs them if not.
+Pillow
+numpy
+pyserial
+requests
+esptool==4.8.1        # to flash the screen firmware
+# Optional, for RoboTube (YouTube): yt-dlp, opencv-python-headless, and Node.js from apt
