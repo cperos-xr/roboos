@@ -1955,14 +1955,16 @@ class Desktop:
 
     def draw_start(self, img, d):
         first, cfirst = len(self.hits), len(self.ctx_hits)        # everything before this is underneath the menu
-        row = 18
         items = [a for a in self.apps if a.name != "power" and getattr(a, "menu", True)]
-        per_col = (len(items) + 1) // 2
-        cw = 132
-        h = row * (per_col + 1) + 10
         x0, y1 = 2, H - TASK_H
+        for cols, cw in ((2, 132), (3, 96)):               # it must fit above the taskbar however many apps there are
+            per_col = max(1, -(-len(items) // cols))
+            row = min(18, (y1 - 12) // (per_col + 1))
+            if row >= 15:
+                break
+        h = row * (per_col + 1) + 10
         y0 = y1 - h
-        box = (x0, y0, x0 + 24 + 2 * cw, y1)
+        box = (x0, y0, x0 + 24 + cols * cw, y1)
         bevel(d, box)
         d.rectangle((x0 + 2, y0 + 2, x0 + 20, y1 - 2), fill=NAVY)
         banner = Image.new("RGBA", (h - 4, 18), (0, 0, 0, 0))
@@ -1973,8 +1975,8 @@ class Desktop:
             col, r = divmod(i, per_col)
             xx, y = x0 + 22 + col * cw, y0 + 4 + r * row
             b = (xx, y, xx + cw - 2, y + row - 1)
-            draw_icon(d, a.icon, xx + 3, y + 1, 16, off=(a.name == "camera" and self.host.camera_privacy()))
-            d.text((xx + 23, y + 3), fit_text(d, a.short or a.title if d.textlength(a.title, font=F_UI) > cw - 28 else a.title, cw - 28),
+            draw_icon(d, a.icon, xx + 3, y + (row - 16) // 2, 16, off=(a.name == "camera" and self.host.camera_privacy()))
+            d.text((xx + 23, y + (row - 12) // 2), fit_text(d, a.short or a.title if d.textlength(a.title, font=F_UI) > cw - 28 else a.title, cw - 28),
                    font=F_UI, fill=DARK)
             self.hits.append((b, lambda n=a.name: self.open_app(n)))
             self.ctx_hits.append((b, a.name, "start"))

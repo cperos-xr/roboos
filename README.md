@@ -1,5 +1,7 @@
 # RoboOS
 
+<p align="center"><img src="docs/img/desktop.png" width="640" alt="The RoboOS desktop: icons for Terminal, Music, Monitor, Game Boy, Files, Recorder, Shut Down, Tic-Tac-Toe, RoboWeb, Notepad, Mines, Checkers, RoboTube, Paint, Munch and the App Store, with a Start button and clock in the taskbar"></p>
+
 A tiny Windows-95-style desktop for a $15 touchscreen. Plug a **CYD** (ESP32-2432S028R, "Cheap Yellow Display")
 into any small Linux computer by USB, and that computer gets a touch desktop with a Start menu, a terminal, a file
 browser, a text web browser, music, paint, games, a Game Boy emulator and an app store.
@@ -10,6 +12,17 @@ USB. The screen sends touches back. A USB mouse and keyboard plugged into the co
 RoboOS started as the face of [Pip](https://github.com/cperos-xr/pip-robot), a small home robot, and runs fine
 without the robot. On the robot it also talks, watches you play Game Boy, and posts its game wins; on its own it is a
 desktop for your Orange Pi, Raspberry Pi or any other board that has USB.
+
+All pictures below are real screens, 320 x 220 pixels, shown at double size.
+
+| | |
+|---|---|
+| <img src="docs/img/start-menu.png" width="400" alt="The Start menu listing the built-in apps and two apps installed from the store"> | <img src="docs/img/app-store.png" width="400" alt="The App Store listing Dice and Stopwatch as installed and Hello ready to get"> |
+| **Start menu**: built-in apps plus the ones you install | **App Store**: install, update and remove apps other people made |
+| <img src="docs/img/game-boy-watch.png" width="400" alt="The Game Boy app playing a homebrew puzzle game, with a tip from the AI watching under the screen"> | <img src="docs/img/terminal.png" width="400" alt="A root terminal with an on-screen keyboard"> |
+| **Game Boy**, with the AI watching you play and giving a tip | **Terminal**: a real shell, with an on-screen keyboard |
+| <img src="docs/img/dice.png" width="400" alt="The Dice app from the store: two dice on green felt, total 9"> | <img src="docs/img/stopwatch.png" width="400" alt="The Stopwatch app from the store with two laps"> |
+| **Dice**, from the store | **Stopwatch**, from the store |
 
 ## What you need
 
